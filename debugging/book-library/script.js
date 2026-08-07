@@ -55,16 +55,16 @@ function Book(title, author, pages, isRead) {
 }
 
 function render() {
-  let table = document.getElementById("display");
-  let rowsNumber = table.rows.length;
+  let tableBody = document.querySelector("#display tbody");
+  let rowsNumber = tableBody.rows.length;
   //delete old table
   for (let n = rowsNumber - 1; n > 0; n--) {
-    table.deleteRow(n);
+    tableBody.deleteRow(n);
   }
   //insert updated row and cells
   let length = myLibrary.length;
   for (let i = 0; i < length; i++) {
-    let row = table.insertRow(1);
+    let row = tableBody.insertRow(1);
     let titleCell = row.insertCell(0);
     let authorCell = row.insertCell(1);
     let pagesCell = row.insertCell(2);
