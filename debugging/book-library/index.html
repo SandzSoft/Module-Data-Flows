@@ -10,6 +10,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="script.js" type="module"></script>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
@@ -28,46 +29,49 @@
     </button>
 
     <div id="demo" class="collapse">
-      <div class="form-group">
-        <label for="title">Title:</label>
-        <input
-          type="title"
-          class="form-control"
-          id="title"
-          name="title"
-          required
-        />
-        <label for="author">Author: </label>
-        <input
-          type="author"
-          class="form-control"
-          id="author"
-          name="author"
-          required
-        />
-        <label for="pages">Pages:</label>
-        <input
-          type="number"
-          class="form-control"
-          id="pages"
-          name="pages"
-          required
-        />
-        <label class="form-check-label">
+      <form id="book-form">
+        <div class="form-group">
+          <label for="title">Title:</label>
           <input
-            type="checkbox"
-            class="form-check-input"
-            id="isRead"
-            value=""
-          />Read
-        </label>
-        <input
-          type="submit"
-          value="Submit"
-          class="btn btn-primary"
-          onclick="addBook()"
-        />
-      </div>
+            type="text"
+            class="form-control"
+            id="title"
+            name="title"
+            required
+          />
+
+          <label for="author">Author:</label>
+          <input
+            type="text"
+            class="form-control"
+            id="author"
+            name="author"
+            required
+          />
+
+          <label for="pages">Pages:</label>
+          <input
+            type="number"
+            class="form-control"
+            id="pages"
+            name="pages"
+            min="1"
+            required
+          />
+
+          <label class="form-check-label">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="isRead"
+              name="isRead"
+            />
+            Read
+          </label>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
     </div>
 
     <table class="table" id="display">
@@ -80,9 +84,10 @@
           <th></th>
         </tr>
       </thead>
-      <tbody id="display tbody"></tbody>
+
+      <tbody id="book-list"></tbody>
     </table>
 
-    <script src="script.js"></script>
+    <script src="script.js" type="module"></script>
   </body>
 </html>
