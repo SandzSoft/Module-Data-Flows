@@ -30,8 +30,6 @@ function populateStorage() {
   }
 }
 
-
-
 function addBook() {
   const title = titleInput.value.trim();
   const author = authorInput.value.trim();
@@ -80,7 +78,7 @@ function render() {
 
     const changeButton = document.createElement("button");
     changeButton.className = "btn btn-success";
-    changeButton.textContent = myLibrary[i].isRead ? "No" : "Yes";
+    changeButton.textContent = myLibrary[i].isRead ? "Yes" : "No";
 
     wasReadCell.appendChild(changeButton);
 
