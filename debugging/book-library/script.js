@@ -1,8 +1,18 @@
-let myLibrary = [];
+const myLibrary = [];
+
+const titleInput = document.getElementById("title");
+const authorInput = document.getElementById("author");
+const pagesInput = document.getElementById("pages");
+const isReadInput = document.getElementById("isRead");
+const bookForm = document.getElementById("book-form");
 
 window.addEventListener("load", function () {
   populateStorage();
   render();
+  bookForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    addBook();
+  });
 });
 
 function populateStorage() {
@@ -20,16 +30,7 @@ function populateStorage() {
   }
 }
 
-const titleInput = document.getElementById("title");
-const authorInput = document.getElementById("author");
-const pagesInput = document.getElementById("pages");
-const isReadInput = document.getElementById("isRead");
-const bookForm = document.getElementById("book-form");
 
-bookForm.addEventListener("submit", function (event) {
-  event.preventDefault();
-  addBook();
-});
 
 function addBook() {
   const title = titleInput.value.trim();
@@ -50,10 +51,7 @@ function addBook() {
 }
 
 function clearForm() {
-  titleInput.value = "";
-  authorInput.value = "";
-  pagesInput.value = "";
-  isReadInput.checked = false;
+  bookForm.reset();
 }
 
 function Book(title, author, pages, isRead) {
@@ -103,7 +101,9 @@ function render() {
       myLibrary.splice(i, 1);
       render();
 
-      alert(`You've deleted title: ${deletedTitle}`);
+      setTimeout(() => {
+        alert(`You've deleted title: ${deletedTitle}`);
+      }, 0);
     });
   }
 }
